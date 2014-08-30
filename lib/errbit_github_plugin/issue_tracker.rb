@@ -53,7 +53,7 @@ module ErrbitGithubPlugin
       app.github_repo
     end
 
-    def check_params
+    def errors
       errors = []
       if self.class.fields.detect {|f| params[f[0]].blank? }
         errors << [:base, 'You must specify your GitHub username and password']
@@ -61,18 +61,22 @@ module ErrbitGithubPlugin
       errors
     end
 
-    def create_issue(problem, reported_by = nil)
+    def github_client
       # Login using OAuth token, if given.
       if oauth_token
-        client = Octokit::Client.new(:login => username, :oauth_token => oauth_token)
+        Octokit::Client.new(
+          :login => params['username'], :oauth_token => oauth_token)
       else
-        client = Octokit::Client.new(:login => username, :password => password)
+        Octokit::Client.new(
+          :login => params['username'], :password => params['password'])
       end
+    end
 
+    def create_issue(problem, reported_by = nil)
       begin
-        issue = client.create_issue(
+        issue = github_client.create_issue(
           project_id,
-          issue_title(problem),
+          "[#{ problem.environment }][#{ problem.where }] #{problem.message.to_s.truncate(100)}",
           self.class.body_template.result(binding).unpack('C*').pack('U*')
         )
         @url = issue.html_url
