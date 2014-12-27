@@ -6,11 +6,12 @@ require 'errbit_github_plugin/version'
 Gem::Specification.new do |spec|
   spec.name          = "errbit_github_plugin"
   spec.version       = ErrbitGithubPlugin::VERSION
-  spec.authors       = ["Cyril Mougel"]
-  spec.email         = ["cyril.mougel@gmail.com"]
-  spec.description   = %q{Add Github issue tracker plugin to errbit}
-  spec.summary       = %q{Add Github issue tracker plugin to errbit}
-  spec.homepage      = ""
+  spec.authors       = ["Stephen Crosby", "Cyril Mougel"]
+  spec.email         = ["stevecrozz@gmail.com", "cyril.mougel@gmail.com"]
+
+  spec.description   = %q{GitHub integration for Errbit}
+  spec.summary       = %q{GitHub integration for Errbit}
+  spec.homepage      = "https://github.com/brandedcrate/errbit_github_plugin"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
