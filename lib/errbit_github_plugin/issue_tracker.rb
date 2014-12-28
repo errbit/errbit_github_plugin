@@ -40,54 +40,41 @@ module ErrbitGithubPlugin
       ))
     end
 
-    attr_accessor :oauth_token
-    attr_reader :url
-
     def configured?
-      project_id.present?
+      errors.empty?
     end
 
-    def comments_allowed?; false; end
-
-    def project_id
-      app.github_repo
+    def url
+      '' # TODO
     end
 
     def errors
       errors = []
-      if self.class.fields.detect {|f| params[f[0]].blank? }
+      if self.class.fields.detect {|f| options[f[0]].blank? }
         errors << [:base, 'You must specify your GitHub username and password']
+      end
+      if repo.blank?
+        errors << [:base, 'You must specify your GitHub repository url.']
       end
       errors
     end
 
-    def github_client
-      # Login using OAuth token, if given.
-      if oauth_token
-        Octokit::Client.new(
-          :login => params['username'], :oauth_token => oauth_token)
-      else
-        Octokit::Client.new(
-          :login => params['username'], :password => params['password'])
-      end
+    def repo
+      options[:github_repo]
     end
 
-    def create_issue(problem, reported_by = nil)
-      begin
-        issue = github_client.create_issue(
-          project_id,
-          "[#{ problem.environment }][#{ problem.where }] #{problem.message.to_s.truncate(100)}",
-          self.class.body_template.result(binding).unpack('C*').pack('U*')
-        )
-        @url = issue.html_url
-        problem.update_attributes(
-          :issue_link => issue.html_url,
-          :issue_type => self.class.label
-        )
-
-      rescue Octokit::Unauthorized
-        raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
+    def create_issue(title, body, user: {})
+      if user['github_login'] && user['github_oauth_token']
+        github_client = Octokit::Client.new(
+          login: user['github_login'], access_token: user['github_oauth_token'])
+      else
+        github_client = Octokit::Client.new(
+          login: options['username'], password: options['password'])
       end
+      issue = github_client.create_issue(repo, title, body)
+      issue.html_url
+    rescue Octokit::Unauthorized
+      raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
     end
   end
 end
