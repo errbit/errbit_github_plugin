@@ -32,14 +32,6 @@ module ErrbitGithubPlugin
       FIELDS
     end
 
-    def self.body_template
-      @body_template ||= ERB.new(File.read(
-        File.join(
-          ErrbitGithubPlugin.root, 'views', 'github_issues_body.txt.erb'
-        )
-      ))
-    end
-
     def configured?
       errors.empty?
     end
