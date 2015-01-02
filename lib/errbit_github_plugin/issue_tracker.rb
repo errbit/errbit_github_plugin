@@ -12,11 +12,11 @@ module ErrbitGithubPlugin
            'OAuth token.'
 
     FIELDS = {
-      :username => {
-        :placeholder => "Your username on GitHub"
+      username: {
+        placeholder: "Your username on GitHub"
       },
-      :password => {
-        :placeholder => "Password for your account"
+      password: {
+        placeholder: "Password for your account"
       }
     }
 
