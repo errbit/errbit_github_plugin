@@ -37,7 +37,7 @@ module ErrbitGithubPlugin
     end
 
     def url
-      '' # TODO
+      "https://github.com/#{repo}/issues"
     end
 
     def errors
