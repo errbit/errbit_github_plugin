@@ -32,6 +32,20 @@ module ErrbitGithubPlugin
       FIELDS
     end
 
+    def self.icons
+      @icons ||= {
+        create: [
+          'image/png', ErrbitGithubPlugin.read_static_file('github_create.png')
+        ],
+        goto: [
+          'image/png', ErrbitGithubPlugin.read_static_file('github_goto.png'),
+        ],
+        inactive: [
+          'image/png', ErrbitGithubPlugin.read_static_file('github_inactive.png'),
+        ]
+      }
+    end
+
     def configured?
       errors.empty?
     end
