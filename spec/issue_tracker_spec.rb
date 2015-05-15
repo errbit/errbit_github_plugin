@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ErrbitGithubPlugin::IssueTracker do
   describe '.label' do
     it 'return LABEL' do
