@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.description   = %q{GitHub integration for Errbit}
   spec.summary       = %q{GitHub integration for Errbit}
-  spec.homepage      = "https://github.com/brandedcrate/errbit_github_plugin"
+  spec.homepage      = "https://github.com/errbit/errbit_github_plugin"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
