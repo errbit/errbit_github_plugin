@@ -1,29 +1,7 @@
-# ErrbitGithubPlugin
+# Errbit Github Plugin [![TravisCI][travis-img-url]][travis-ci-url]
 
-TODO: Write a gem description
+[travis-img-url]: https://travis-ci.org/errbit/errbit_github_plugin.svg?branch=master
+[travis-ci-url]: http://travis-ci.org/errbit/errbit_github_plugin
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'errbit_github_plugin'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install errbit_github_plugin
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+This plugin provides GitHub issue tracker integration for Errbit and it is the
+only plugin included by default in Errbit.
