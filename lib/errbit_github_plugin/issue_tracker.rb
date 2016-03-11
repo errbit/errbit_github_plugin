@@ -82,5 +82,23 @@ module ErrbitGithubPlugin
     rescue Octokit::Unauthorized
       raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
     end
+
+    def close_issue(url, user: {})
+      if user['github_login'] && user['github_oauth_token']
+        github_client = Octokit::Client.new(
+          login: user['github_login'], access_token: user['github_oauth_token'])
+      else
+        github_client = Octokit::Client.new(
+          login: options['username'], password: options['password'])
+      end
+      # It would be better to get the number from issue.number when we create the issue,
+      # however, since we only have the url, get the number from it.
+      # ex: "https://github.com/octocat/Hello-World/issues/1347"
+      issue_number = url.split("/").last
+      issue = github_client.close_issue(repo, issue_number)
+      issue.html_url
+    rescue Octokit::Unauthorized
+      raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
+    end
   end
 end
