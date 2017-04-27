@@ -69,7 +69,7 @@ module ErrbitGithubPlugin
       options[:github_repo]
     end
 
-    def create_issue(title, body, user: {})
+    def create_issue(title, body, user={})
       if user['github_login'] && user['github_oauth_token']
         github_client = Octokit::Client.new(
           login: user['github_login'], access_token: user['github_oauth_token'])
