@@ -22,18 +22,15 @@ describe ErrbitGithubPlugin::IssueTracker do
   describe '.icons' do
 
     it 'puts create icon onto the icons' do
-      expect(described_class.icons[:create][0]).to eq('image/png')
-      expect(described_class.icons[:create][1]).to eq('errbit_github_plugin/github_create.png')
+      expect(described_class.icons[:create]).to eq('github_create.png')
     end
 
     it 'puts goto icon onto the icons' do
-      expect(described_class.icons[:goto][0]).to eq('image/png')
-      expect(described_class.icons[:goto][1]).to eq('errbit_github_plugin/github_goto.png')
+      expect(described_class.icons[:goto]).to eq('github_goto.png')
     end
 
     it 'puts inactive icon onto the icons' do
-      expect(described_class.icons[:inactive][0]).to eq('image/png')
-      expect(described_class.icons[:inactive][1]).to eq('errbit_github_plugin/github_inactive.png')
+      expect(described_class.icons[:inactive]).to eq('github_inactive.png')
     end
   end
 
