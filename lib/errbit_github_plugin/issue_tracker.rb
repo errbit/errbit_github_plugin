@@ -36,9 +36,9 @@ module ErrbitGithubPlugin
 
     def self.icons
       {
-        create: ['image/png', 'errbit_github_plugin/github_create.png'],
-        goto: ['image/png', 'errbit_github_plugin/github_goto.png'],
-        inactive: ['image/png', 'errbit_github_plugin/github_inactive.png']
+        create: "github_create.png",
+        goto: "github_goto.png",
+        inactive: "github_inactive.png"
       }
     end
 

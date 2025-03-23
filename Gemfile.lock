@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    errbit_github_plugin (0.3.0)
+    errbit_github_plugin (0.4.0)
       errbit_plugin
       octokit
       railties (>= 6.1.0)
