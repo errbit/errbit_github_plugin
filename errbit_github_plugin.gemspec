@@ -1,4 +1,5 @@
-# coding: utf-8
+# frozen_string_literal: true
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'errbit_github_plugin/version'
@@ -20,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'errbit_plugin'
+  spec.add_dependency 'railties', ">= 6.1.0"
   spec.add_dependency 'octokit'
 
   spec.add_development_dependency 'rspec'

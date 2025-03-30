@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'octokit'
 
 module ErrbitGithubPlugin
@@ -5,10 +7,10 @@ module ErrbitGithubPlugin
 
     LABEL = 'github'
 
-    NOTE = 'Please configure your github repository in the <strong>GITHUB ' <<
-           'REPO</strong> field above.<br/> Instead of providing your ' <<
-           'username & password, you can link your Github account to your ' <<
-           'user profile, and allow Errbit to create issues using your ' <<
+    NOTE = 'Please configure your github repository in the <strong>GitHub '
+           'repo</strong> field above.<br> Instead of providing your '
+           'username & password, you can link your GitHub account to your '
+           'user profile, and allow Errbit to create issues using your '
            'OAuth token.'
 
     FIELDS = {
@@ -33,16 +35,10 @@ module ErrbitGithubPlugin
     end
 
     def self.icons
-      @icons ||= {
-        create: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_create.png')
-        ],
-        goto: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_goto.png'),
-        ],
-        inactive: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_inactive.png'),
-        ]
+      {
+        create: "github_create.png",
+        goto: "github_goto.png",
+        inactive: "github_inactive.png"
       }
     end
 
