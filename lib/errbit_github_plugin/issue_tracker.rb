@@ -58,12 +58,15 @@ module ErrbitGithubPlugin
 
     def errors
       errors = []
+
       if self.class.fields.detect { |f| options[f[0]].blank? }
         errors << [:base, "You must specify your GitHub username and password"]
       end
+
       if repo.blank?
         errors << [:base, "You must specify your GitHub repository url."]
       end
+
       errors
     end
 
