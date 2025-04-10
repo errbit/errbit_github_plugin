@@ -6,9 +6,9 @@ module ErrbitGithubPlugin
   class IssueTracker < ErrbitPlugin::IssueTracker
     LABEL = "github"
 
-    NOTE = "Please configure your github repository in the <strong>GITHUB " \
+    NOTE = "Please configure your GitHub repository in the <strong>GITHUB " \
            "REPO</strong> field above.<br> Instead of providing your " \
-           "username & password, you can link your Github account to your " \
+           "username & password, you can link your GitHub account to your " \
            "user profile, and allow Errbit to create issues using your " \
            "OAuth token."
 
