@@ -146,6 +146,7 @@ DEPENDENCIES
   errbit_github_plugin!
   rake
   rspec
+  rubocop
   simplecov
   standard
 

@@ -7,4 +7,5 @@ gemspec
 gem "rake"
 gem "rspec"
 gem "simplecov", require: false
-gem "standard"
+gem "standard", require: false
+gem "rubocop", require: false
