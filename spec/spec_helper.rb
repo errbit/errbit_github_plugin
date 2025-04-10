@@ -1,8 +1,6 @@
-if ENV['COVERAGE']
-  require 'simplecov'
+require 'simplecov'
 
-  SimpleCov.start
-end
+SimpleCov.start
 
 require 'errbit_plugin'
 require 'errbit_github_plugin'
