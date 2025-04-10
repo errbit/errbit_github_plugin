@@ -138,7 +138,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  bundler
   errbit_github_plugin!
   guard
   guard-rspec
