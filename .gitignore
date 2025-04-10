@@ -17,3 +17,5 @@ tmp
 *.swp
 .rspec
 vendor/bundle
+.rspec_status
+.idea

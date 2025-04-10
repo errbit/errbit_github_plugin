@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-describe ErrbitGithubPlugin::IssueTracker do
+require "spec_helper"
+
+RSpec.describe ErrbitGithubPlugin::IssueTracker do
   describe ".label" do
     it "return LABEL" do
       expect(described_class.label).to eq described_class::LABEL
@@ -108,12 +110,12 @@ describe ErrbitGithubPlugin::IssueTracker do
     end
     let(:fake_github_client) do
       double("Fake GitHub Client").tap do |github_client|
-        github_client.stub(:create_issue).and_return(fake_issue)
+        expect(github_client).to receive(:create_issue).and_return(fake_issue)
       end
     end
     let(:fake_issue) do
       double("Fake Issue").tap do |issue|
-        issue.stub(:html_url).and_return("http://github.com/user/repos/issues/878")
+        expect(issue).to receive(:html_url).and_return("http://github.com/user/repos/issues/878").twice
       end
     end
 
@@ -125,7 +127,7 @@ describe ErrbitGithubPlugin::IssueTracker do
         }
       end
       it "return issue url" do
-        Octokit::Client.stub(:new).with(
+        expect(Octokit::Client).to receive(:new).with(
           login: user["github_login"], access_token: user["github_oauth_token"]
         ).and_return(fake_github_client)
         expect(subject).to eq fake_issue.html_url
@@ -135,7 +137,7 @@ describe ErrbitGithubPlugin::IssueTracker do
     context "signed in with password" do
       let(:user) { {} }
       it "return issue url" do
-        Octokit::Client.stub(:new).with(
+        expect(Octokit::Client).to receive(:new).with(
           login: options["username"], password: options["password"]
         ).and_return(fake_github_client)
         expect(subject).to eq fake_issue.html_url
@@ -147,10 +149,10 @@ describe ErrbitGithubPlugin::IssueTracker do
         {"github_login" => "alice", "github_oauth_token" => "invalid_token"}
       end
       it "raise AuthenticationError" do
-        Octokit::Client.stub(:new).with(
+        expect(Octokit::Client).to receive(:new).with(
           login: user["github_login"], access_token: user["github_oauth_token"]
         ).and_raise(Octokit::Unauthorized)
-        expect { subject }.to raise_error
+        expect { subject }.to raise_error(ErrbitGithubPlugin::AuthenticationError)
       end
     end
   end
