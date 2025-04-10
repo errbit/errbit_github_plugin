@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     errbit_github_plugin (0.4.0)
+      activesupport
       errbit_plugin
       faraday-retry
       octokit
@@ -142,7 +143,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  activesupport
   errbit_github_plugin!
   rake
   rspec
