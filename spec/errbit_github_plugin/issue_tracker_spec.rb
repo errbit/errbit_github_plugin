@@ -115,7 +115,7 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
     end
     let(:fake_issue) do
       double("Fake Issue").tap do |issue|
-        expect(issue).to receive(:html_url).and_return("http://github.com/user/repos/issues/878")
+        expect(issue).to receive(:html_url).and_return("http://github.com/user/repos/issues/878").twice
       end
     end
 
