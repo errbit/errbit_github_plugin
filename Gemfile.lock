@@ -61,11 +61,6 @@ GEM
       pry (>= 0.13.0)
       shellany (~> 0.0)
       thor (>= 0.18.1)
-    guard-compat (1.2.1)
-    guard-rspec (4.7.3)
-      guard (~> 2.1)
-      guard-compat (~> 1.1)
-      rspec (>= 2.99.0, < 4.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     json (2.10.2)
@@ -140,7 +135,6 @@ DEPENDENCIES
   activesupport
   errbit_github_plugin!
   guard
-  guard-rspec
   rake
   rspec
   simplecov
