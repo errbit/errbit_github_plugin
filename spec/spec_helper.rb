@@ -1,16 +1,6 @@
-if ENV['COVERAGE']
-  require 'simplecov'
-  if ENV['CI']
-    require 'coveralls'
-    Coveralls.wear!
-    SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-      SimpleCov::Formatter::HTMLFormatter,
-      Coveralls::SimpleCov::Formatter
-    ]
-  end
+require 'simplecov'
 
-  SimpleCov.start
-end
+SimpleCov.start
 
 require 'errbit_plugin'
 require 'errbit_github_plugin'
