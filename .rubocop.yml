@@ -1,5 +1,7 @@
 plugins:
   - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 3.1
@@ -281,11 +283,17 @@ Security/JSONLoad:
 
 # Our rubocop rules
 
+# Bundler rules.
+
 Bundler/OrderedGems:
   Enabled: false
 
+# Gemspec rules
+
 Gemspec/OrderedDependencies:
   Enabled: false
+
+# Style rules
 
 # Don't allow %i[foo bar baz]
 Style/SymbolArray:
@@ -299,4 +307,34 @@ Style/WordArray:
 
 # Disable warnings like "Missing top-level documentation comment for"
 Style/Documentation:
+  Enabled: false
+
+# Disable as in standard.
+Style/ArgumentsForwarding:
+  Enabled: false
+
+# RSpec rules
+
+# Prefer eq over be.
+RSpec/BeEq:
+  Enabled: false
+
+# Prefer eq over eql.
+RSpec/BeEql:
+  Enabled: false
+
+# We prefer to use `expect` over `allow`.
+RSpec/StubbedMock:
+  Enabled: false
+
+# We prefer multiple before blocks in tests.
+RSpec/ScatteredSetup:
+  Enabled: false
+
+# We use `expect` in before hooks.
+RSpec/ExpectInHook:
+  Enabled: false
+
+# We use item_1, item_2, etc. Disable.
+RSpec/IndexedLet:
   Enabled: false

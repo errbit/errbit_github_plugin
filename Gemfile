@@ -9,3 +9,5 @@ gem "rspec"
 gem "simplecov", require: false
 gem "standard", require: false
 gem "rubocop", require: false
+gem "rubocop-rake", require: false
+gem "rubocop-rspec", require: false
