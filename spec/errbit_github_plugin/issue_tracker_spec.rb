@@ -152,7 +152,7 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
         expect(Octokit::Client).to receive(:new).with(
           login: user["github_login"], access_token: user["github_oauth_token"]
         ).and_raise(Octokit::Unauthorized)
-        expect { subject }.to raise_error
+        expect { subject }.to raise_error(ErrbitGithubPlugin::AuthenticationError)
       end
     end
   end
