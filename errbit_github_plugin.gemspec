@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "errbit_plugin"
+  spec.add_dependency "faraday-retry"
   spec.add_dependency "octokit"
 
   spec.add_development_dependency "rspec"
