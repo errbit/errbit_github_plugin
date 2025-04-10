@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "errbit_github_plugin/version"
 require 'errbit_github_plugin/error'
 require 'errbit_github_plugin/issue_tracker'
