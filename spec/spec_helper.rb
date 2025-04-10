@@ -6,6 +6,8 @@ SimpleCov.start do
   enable_coverage :branch
 
   primary_coverage :branch
+
+  add_filter "spec/"
 end
 
 require "errbit_plugin"
