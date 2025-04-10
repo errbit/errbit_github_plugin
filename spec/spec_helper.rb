@@ -2,7 +2,11 @@
 
 require "simplecov"
 
-SimpleCov.start
+SimpleCov.start do
+  enable_coverage :branch
+
+  primary_coverage :branch
+end
 
 require "errbit_plugin"
 require "errbit_github_plugin"
