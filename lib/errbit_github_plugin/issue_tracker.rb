@@ -7,7 +7,7 @@ module ErrbitGithubPlugin
     LABEL = "github"
 
     NOTE = "Please configure your github repository in the <strong>GITHUB " \
-           "REPO</strong> field above.<br/> Instead of providing your " \
+           "REPO</strong> field above.<br> Instead of providing your " \
            "username & password, you can link your Github account to your " \
            "user profile, and allow Errbit to create issues using your " \
            "OAuth token."
