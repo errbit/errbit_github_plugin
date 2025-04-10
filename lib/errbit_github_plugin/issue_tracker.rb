@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
-require 'octokit'
+require "octokit"
 
 module ErrbitGithubPlugin
   class IssueTracker < ErrbitPlugin::IssueTracker
+    LABEL = "github"
 
-    LABEL = 'github'
-
-    NOTE = 'Please configure your github repository in the <strong>GITHUB ' \
-           'REPO</strong> field above.<br/> Instead of providing your ' \
-           'username & password, you can link your Github account to your ' \
-           'user profile, and allow Errbit to create issues using your ' \
-           'OAuth token.'
+    NOTE = "Please configure your github repository in the <strong>GITHUB " \
+           "REPO</strong> field above.<br/> Instead of providing your " \
+           "username & password, you can link your Github account to your " \
+           "user profile, and allow Errbit to create issues using your " \
+           "OAuth token."
 
     FIELDS = {
       username: {
@@ -37,13 +36,13 @@ module ErrbitGithubPlugin
     def self.icons
       @icons ||= {
         create: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_create.png')
+          "image/png", ErrbitGithubPlugin.read_static_file("github_create.png")
         ],
         goto: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_goto.png'),
+          "image/png", ErrbitGithubPlugin.read_static_file("github_goto.png")
         ],
         inactive: [
-          'image/png', ErrbitGithubPlugin.read_static_file('github_inactive.png'),
+          "image/png", ErrbitGithubPlugin.read_static_file("github_inactive.png")
         ]
       }
     end
@@ -58,11 +57,11 @@ module ErrbitGithubPlugin
 
     def errors
       errors = []
-      if self.class.fields.detect {|f| options[f[0]].blank? }
-        errors << [:base, 'You must specify your GitHub username and password']
+      if self.class.fields.detect { |f| options[f[0]].blank? }
+        errors << [:base, "You must specify your GitHub username and password"]
       end
       if repo.blank?
-        errors << [:base, 'You must specify your GitHub repository url.']
+        errors << [:base, "You must specify your GitHub repository url."]
       end
       errors
     end
@@ -72,12 +71,14 @@ module ErrbitGithubPlugin
     end
 
     def create_issue(title, body, user: {})
-      if user['github_login'] && user['github_oauth_token']
-        github_client = Octokit::Client.new(
-          login: user['github_login'], access_token: user['github_oauth_token'])
+      github_client = if user["github_login"] && user["github_oauth_token"]
+        Octokit::Client.new(
+          login: user["github_login"], access_token: user["github_oauth_token"]
+        )
       else
-        github_client = Octokit::Client.new(
-          login: options['username'], password: options['password'])
+        Octokit::Client.new(
+          login: options["username"], password: options["password"]
+        )
       end
       issue = github_client.create_issue(repo, title, body)
       issue.html_url
@@ -86,12 +87,14 @@ module ErrbitGithubPlugin
     end
 
     def close_issue(url, user: {})
-      if user['github_login'] && user['github_oauth_token']
-        github_client = Octokit::Client.new(
-          login: user['github_login'], access_token: user['github_oauth_token'])
+      github_client = if user["github_login"] && user["github_oauth_token"]
+        Octokit::Client.new(
+          login: user["github_login"], access_token: user["github_oauth_token"]
+        )
       else
-        github_client = Octokit::Client.new(
-          login: options['username'], password: options['password'])
+        Octokit::Client.new(
+          login: options["username"], password: options["password"]
+        )
       end
       # It would be better to get the number from issue.number when we create the issue,
       # however, since we only have the url, get the number from it.
