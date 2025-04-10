@@ -1,0 +1,223 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+# We use standard as a linter and formatter instead Rubocop.
+# Also, we are explicitly disable all rubocop rules what
+# already enabled in standard. And standard-performance.
+
+# Standard rules. Style:
+
+# Enforced by standard. Disable.
+Style/StringLiterals:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/HashSyntax:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/NestedParenthesizedCalls:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantRegexpArgument:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantBegin:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/SuperWithArgsParentheses:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/Encoding:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantParentheses:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/EmptyMethod:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/SingleLineMethods:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/SafeNavigation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RescueStandardError:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantSelf:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/TernaryParentheses:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantLineContinuation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/SlicingWithRange:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/MultilineIfModifier:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantCondition:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/RedundantInterpolation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/OrAssignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/ConditionalAssignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/ItAssignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/EachWithObject:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/GlobalStdStream:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+# Disabled as in standard.
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Style/Alias:
+  Enabled: false
+
+# Standard rules. Layout:
+
+# Enforced by standard. Disable.
+Layout/HashAlignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/SpaceInsideStringInterpolation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/DotPosition:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/ExtraSpacing:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/ArgumentAlignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/AccessModifierIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/IndentationWidth:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/ElseAlignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/EndAlignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/MultilineHashBraceLayout:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/MultilineArrayBraceLayout:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/ArrayAlignment:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/AssignmentIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/LineLength:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+# Enforced by standard. Disable.
+Layout/CaseIndentation:
+  Enabled: false
