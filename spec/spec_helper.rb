@@ -12,7 +12,7 @@ end
 
 require "errbit_plugin"
 require "errbit_github_plugin"
-require "active_support/all"
+require "active_support/core_ext/object/blank"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
