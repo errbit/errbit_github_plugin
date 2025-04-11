@@ -90,6 +90,9 @@ module ErrbitGithubPlugin
       raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
     end
 
+    # @param url [String]
+    # @param user [Hash]
+    # @return [String] The URL of the closed issue
     def close_issue(url, user: {})
       github_client = if user["github_login"] && user["github_oauth_token"]
         Octokit::Client.new(
