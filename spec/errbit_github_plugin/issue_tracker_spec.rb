@@ -28,24 +28,24 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
 
   describe ".icons" do
     it "puts create icon onto the icons" do
-      expect(described_class.icons[:create][0]).to eq "image/png"
-      expect(
-        described_class.icons[:create][1]
-      ).to eq ErrbitGithubPlugin.read_static_file("github_create.png")
+      expect(described_class.icons[:create][0]).to eq("image/png")
+
+      expect(described_class.icons[:create][1])
+        .to eq(ErrbitGithubPlugin.read_static_file("github_create.png"))
     end
 
     it "puts goto icon onto the icons" do
-      expect(described_class.icons[:goto][0]).to eq "image/png"
-      expect(
-        described_class.icons[:goto][1]
-      ).to eq ErrbitGithubPlugin.read_static_file("github_goto.png")
+      expect(described_class.icons[:goto][0]).to eq("image/png")
+
+      expect(described_class.icons[:goto][1])
+        .to eq(ErrbitGithubPlugin.read_static_file("github_goto.png"))
     end
 
     it "puts inactive icon onto the icons" do
-      expect(described_class.icons[:inactive][0]).to eq "image/png"
-      expect(
-        described_class.icons[:inactive][1]
-      ).to eq ErrbitGithubPlugin.read_static_file("github_inactive.png")
+      expect(described_class.icons[:inactive][0]).to eq("image/png")
+
+      expect(described_class.icons[:inactive][1])
+        .to eq(ErrbitGithubPlugin.read_static_file("github_inactive.png"))
     end
   end
 
@@ -54,24 +54,28 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
   describe "#configured?" do
     context "with errors" do
       let(:options) { {invalid_key: ""} }
+
       it "return false" do
-        expect(tracker.configured?).to eq false
+        expect(tracker.configured?).to eq(false)
       end
     end
+
     context "without errors" do
       let(:options) do
         {username: "foo", password: "bar", github_repo: "user/repository"}
       end
+
       it "return true" do
-        expect(tracker.configured?).to eq true
+        expect(tracker.configured?).to eq(true)
       end
     end
   end
 
   describe "#url" do
-    let(:options) { {github_repo: "repo"} }
+    let(:options) { {github_repo: "user/repo"} }
+
     it "returns issues url" do
-      expect(tracker.url).to eq "https://github.com/repo/issues"
+      expect(tracker.url).to eq("https://github.com/user/repo/issues")
     end
   end
 
@@ -87,12 +91,15 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
       end
       it { is_expected.not_to be_empty }
     end
+
     context "without github_repo" do
       let(:options) do
         {username: "foo", password: "bar", github_repo: ""}
       end
+
       it { is_expected.not_to be_empty }
     end
+
     context "with completed options" do
       let(:options) do
         {username: "foo", password: "bar", github_repo: "repo"}
@@ -168,6 +175,20 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
 
         expect { subject }.to raise_error(ErrbitGithubPlugin::AuthenticationError)
       end
+    end
+  end
+
+  describe "#close_issue" do
+    context "signed in with token" do
+      let(:user) do
+        {
+          "github_login" => "bob",
+          "github_oauth_token" => "valid_token"
+        }
+      end
+
+
+
     end
   end
 end
