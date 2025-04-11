@@ -156,6 +156,7 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-disable_syntax
+  rubocop-performance
   rubocop-rake
   rubocop-rspec
   simplecov
