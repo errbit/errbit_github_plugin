@@ -6,11 +6,12 @@ SimpleCov.start do
   enable_coverage :branch
 
   primary_coverage :branch
+
+  add_filter "spec/"
 end
 
 require "errbit_plugin"
 require "errbit_github_plugin"
-require "active_support/all"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

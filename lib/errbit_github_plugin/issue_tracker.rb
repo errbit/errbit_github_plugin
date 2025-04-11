@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/object/blank"
 require "octokit"
 
 module ErrbitGithubPlugin
@@ -57,12 +58,15 @@ module ErrbitGithubPlugin
 
     def errors
       errors = []
+
       if self.class.fields.detect { |f| options[f[0]].blank? }
         errors << [:base, "You must specify your GitHub username and password"]
       end
+
       if repo.blank?
         errors << [:base, "You must specify your GitHub repository url."]
       end
+
       errors
     end
 
@@ -86,6 +90,9 @@ module ErrbitGithubPlugin
       raise ErrbitGithubPlugin::AuthenticationError, "Could not authenticate with GitHub. Please check your username and password."
     end
 
+    # @param url [String]
+    # @param user [Hash]
+    # @return [String] The URL of the closed issue
     def close_issue(url, user: {})
       github_client = if user["github_login"] && user["github_oauth_token"]
         Octokit::Client.new(
