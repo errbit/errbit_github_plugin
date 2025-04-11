@@ -338,3 +338,23 @@ RSpec/ExpectInHook:
 # We use item_1, item_2, etc. Disable.
 RSpec/IndexedLet:
   Enabled: false
+
+# Naming rules:
+
+# Disable anonymous block forwarding.
+Naming/BlockForwarding:
+  Enabled: true
+  EnforcedStyle: explicit
+
+# Enable and exclude specific files.
+Naming/FileName:
+  Enabled: true
+
+# Disabled syntax:
+
+# Disable shorthand hash syntax like: ({ x:, y: })
+# Disable % style literals
+Style/DisableSyntax:
+  DisableSyntax:
+    - shorthand_hash_syntax
+    - percent_literals
