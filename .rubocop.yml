@@ -342,6 +342,10 @@ RSpec/ExpectInHook:
 RSpec/IndexedLet:
   Enabled: false
 
+# We don't use named subject's
+RSpec/NamedSubject:
+  Enabled: false
+
 # Naming rules:
 
 # Disable anonymous block forwarding.
