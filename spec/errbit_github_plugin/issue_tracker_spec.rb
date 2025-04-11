@@ -185,6 +185,24 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
   end
 
   describe "#close_issue" do
+    subject { tracker.close_issue("url", user: user) }
+
+    let(:options) do
+      {username: "foo", password: "bar", github_repo: "user/repository"}
+    end
+
+    let(:fake_github_client) do
+      double("Fake GitHub Client").tap do |github_client|
+        expect(github_client).to receive(:close_issue).and_return(fake_issue)
+      end
+    end
+
+    let(:fake_issue) do
+      double("Fake Issue").tap do |issue|
+        expect(issue).to receive(:html_url).and_return("http://github.com/user/repos/issues/878").twice
+      end
+    end
+
     context "signed in with token" do
       let(:user) do
         {
@@ -193,8 +211,39 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
         }
       end
 
+      it "return issue url" do
+        expect(Octokit::Client).to receive(:new).with(
+          login: user["github_login"], access_token: user["github_oauth_token"]
+        ).and_return(fake_github_client)
 
+        expect(subject).to eq(fake_issue.html_url)
+      end
+    end
 
+    context "signed in with password" do
+      let(:user) { {} }
+
+      it "return issue url" do
+        expect(Octokit::Client).to receive(:new).with(
+          login: options["username"], password: options["password"]
+        ).and_return(fake_github_client)
+
+        expect(subject).to eq(fake_issue.html_url)
+      end
+    end
+
+    context "when unauthentication error" do
+      let(:user) do
+        {"github_login" => "alice", "github_oauth_token" => "invalid_token"}
+      end
+      #
+      it "raise AuthenticationError" do
+        expect(Octokit::Client).to receive(:new).with(
+          login: user["github_login"], access_token: user["github_oauth_token"]
+        ).and_raise(Octokit::Unauthorized)
+
+        expect { subject }.to raise_error(ErrbitGithubPlugin::AuthenticationError)
+      end
     end
   end
 end
