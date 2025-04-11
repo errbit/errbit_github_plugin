@@ -1,3 +1,6 @@
+require:
+  - rubocop-disable_syntax
+
 plugins:
   - rubocop-performance
   - rubocop-rake
