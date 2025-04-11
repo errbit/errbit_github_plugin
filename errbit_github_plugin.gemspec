@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "errbit_github_plugin/version"
+require_relative "lib/errbit_github_plugin/version"
 
 Gem::Specification.new do |spec|
   spec.name = "errbit_github_plugin"
@@ -10,10 +8,14 @@ Gem::Specification.new do |spec|
   spec.authors = ["Stephen Crosby"]
   spec.email = ["stevecrozz@gmail.com"]
 
-  spec.description = "GitHub integration for Errbit"
   spec.summary = "GitHub integration for Errbit"
+  spec.description = "GitHub integration for Errbit"
   spec.homepage = "https://github.com/errbit/errbit_github_plugin"
   spec.license = "MIT"
+  spec.required_ruby_version = ">= 3.1.0"
+
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
 
   spec.files = `git ls-files`.split($/)
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
