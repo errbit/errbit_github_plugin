@@ -81,14 +81,18 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
 
   describe "#errors" do
     subject { tracker.errors }
+
     context "without username" do
       let(:options) { {username: "", password: "bar", github_repo: "repo"} }
+
       it { is_expected.not_to be_empty }
     end
+
     context "without password" do
       let(:options) do
         {username: "", password: "bar", github_repo: "repo"}
       end
+
       it { is_expected.not_to be_empty }
     end
 
@@ -104,14 +108,16 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
       let(:options) do
         {username: "foo", password: "bar", github_repo: "repo"}
       end
+
       it { is_expected.to be_empty }
     end
   end
 
   describe "#repo" do
     let(:options) { {github_repo: "baz"} }
+
     it "returns github repo" do
-      expect(tracker.repo).to eq "baz"
+      expect(tracker.repo).to eq("baz")
     end
   end
 
@@ -147,7 +153,7 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
           login: user["github_login"], access_token: user["github_oauth_token"]
         ).and_return(fake_github_client)
 
-        expect(subject).to eq fake_issue.html_url
+        expect(subject).to eq(fake_issue.html_url)
       end
     end
 
@@ -159,7 +165,7 @@ RSpec.describe ErrbitGithubPlugin::IssueTracker do
           login: options["username"], password: options["password"]
         ).and_return(fake_github_client)
 
-        expect(subject).to eq fake_issue.html_url
+        expect(subject).to eq(fake_issue.html_url)
       end
     end
 
