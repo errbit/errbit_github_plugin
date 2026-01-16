@@ -1,10 +1,8 @@
-require:
-  - rubocop-disable_syntax
-
 plugins:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
+  - rubocop-disable_syntax
 
 AllCops:
   TargetRubyVersion: 3.4
@@ -344,6 +342,10 @@ RSpec/IndexedLet:
 
 # We don't use named subject's
 RSpec/NamedSubject:
+  Enabled: false
+
+# We prefer `receive` over `have_received`
+RSpec/MessageSpies:
   Enabled: false
 
 # Naming rules:
