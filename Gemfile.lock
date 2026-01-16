@@ -59,7 +59,7 @@ GEM
     parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
-    prism (1.5.1)
+    prism (1.8.0)
     public_suffix (6.0.1)
     racc (1.8.1)
     rainbow (3.1.1)
@@ -186,7 +186,7 @@ CHECKSUMS
   octokit (9.2.0) sha256=4fa47ff35ce654127edf2c836ab9269bcc8829f5542dc1e86871f697ce7f4316
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.1) sha256=06f6a725d2cd91e5e7f2b7c32ba143631e1f7c8ae2fb918fc4cebec187e6a688
-  prism (1.5.1) sha256=b40c1b76ccb9fcccc3d1553967cda6e79fa7274d8bfea0d98b15d27a6d187134
+  prism (1.8.0) sha256=84453a16ef5530ea62c5f03ec16b52a459575ad4e7b9c2b360fd8ce2c39c1254
   public_suffix (6.0.1) sha256=61d44e1cab5cbbbe5b31068481cf16976dd0dc1b6b07bd95617ef8c5e3e00c6f
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
