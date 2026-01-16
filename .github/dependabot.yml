@@ -1,11 +1,20 @@
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
+    open-pull-requests-limit: 99
+    assignees:
+      - "biow0lf"
 
-  - package-ecosystem: bundler
-    directory: /
+  - package-ecosystem: "bundler"
+    directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
+    open-pull-requests-limit: 99
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    assignees:
+      - "biow0lf"

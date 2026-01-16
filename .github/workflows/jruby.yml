@@ -3,10 +3,10 @@ name: RSpec on JRuby
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   schedule:
     - cron: "0 21 * * 6"
 
