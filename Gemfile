@@ -7,7 +7,7 @@ gemspec
 gem "rake"
 gem "rspec"
 gem "simplecov", require: false
-gem "standard", require: false
+gem "standard", "1.53.0", require: false
 gem "rubocop", require: false
 gem "rubocop-disable_syntax", require: false
 gem "rubocop-performance", require: false
