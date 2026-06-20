@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    errbit_github_plugin (0.4.0)
+    errbit_github_plugin (0.5.0)
       activesupport
       errbit_plugin
       faraday-retry
@@ -174,7 +174,7 @@ CHECKSUMS
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
-  errbit_github_plugin (0.4.0)
+  errbit_github_plugin (0.5.0)
   errbit_plugin (0.8.0) sha256=dfd883a4f0e55b5742cb839b0f623ac6188e52e7424f4a5f19aa11a136b09846
   faraday (2.14.3) sha256=1882247e6766615c8220b4392bf1d27f6ebb63d8e28267587cef1fb0bf37f278
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
