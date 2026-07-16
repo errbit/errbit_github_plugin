@@ -7,7 +7,7 @@ SimpleCov.start do
 
   primary_coverage :branch
 
-  add_filter "spec/"
+  skip "spec/"
 end
 
 require "errbit_plugin"
