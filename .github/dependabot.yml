@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "daily"
     cooldown:
-      default-days: 0
+      default-days: 7
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
@@ -15,7 +15,7 @@ updates:
     schedule:
       interval: "daily"
     cooldown:
-      default-days: 0
+      default-days: 7
     open-pull-requests-limit: 99
     allow:
       - dependency-type: "direct"
